@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  jenkins:
+    image: sua-imagem-aqui
+    ports:
+      - 8080:8080
+    networks:
+      - simple-net
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints: [node.platform.os == linux]
+     
+     
+ 
+networks:
+  simple-net:
+    driver: overlay
+    external: true   
